@@ -196,7 +196,7 @@ Trained with AdamW (lr=1e-3, cosine LR, label smoothing=0.1, seed=42). Early sto
 | Butterfly | 39.0%    |
 | Otter     | 41.0%    |
 
-> Early stopping at epoch 39 suggests the model may benefit from a lower learning rate or longer warmup. Fine-grained animal categories (lizard, seal, butterfly, otter) and people (boy) are the primary confusion sources.
+> **Note:** This ResNet34 run used a weaker augmentation configuration than the ResNet18 run (no RandAugment, weaker CutMix/MixUp settings), which led to overfitting and explains why the larger model underperforms the smaller one. ResNet34 needs to be retrained with the full augmentation pipeline to reach its target range. Retraining is pending — training time on a local Mac (MPS) is prohibitively slow for a 100-epoch run at this scale.
 
 ---
 
