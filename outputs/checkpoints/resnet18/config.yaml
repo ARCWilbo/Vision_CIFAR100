@@ -1,0 +1,39 @@
+augmentation:
+  cutmix_alpha: 1.0
+  horizontal_flip: true
+  label_smoothing: 0.1
+  mixup_alpha: 0.2
+  randaugment: true
+  randaugment_m: 9
+  randaugment_n: 2
+  random_crop: true
+  random_erasing: true
+  random_erasing_prob: 0.3
+checkpoint:
+  dir: ./outputs/checkpoints
+data:
+  num_workers: 6
+  pin_memory: true
+  root: ./data
+model:
+  dropout: 0.1
+  name: resnet18
+  num_classes: 100
+name: resnet18
+outputs:
+  figures: ./outputs/figures
+resume_checkpoint: outputs/checkpoints/resnet18/best_resnet18.pth
+resume_epochs: 35
+saved_checkpoint: outputs/checkpoints/resnet18/best_resnet18.pth
+training:
+  batch_size: 256
+  early_stopping_patience: 10
+  epochs: 100
+  grad_clip: 1.0
+  lr: 0.001
+  momentum: 0.9
+  optimizer: adamw
+  scheduler: cosine
+  seed: 42
+  warmup_epochs: 9
+  weight_decay: 0.0001

@@ -1,0 +1,42 @@
+name: default
+
+data:
+  root: ./data
+  num_workers: 6
+  pin_memory: true
+
+model:
+  name: resnet18 # simplecnn | resnet18 | resnet34
+  num_classes: 100
+  dropout: 0.1
+
+training:
+  epochs: 100
+  batch_size: 256
+  optimizer: adamw # sgd | adamw
+  lr: 0.001
+  weight_decay: 0.0001
+  momentum: 0.9
+  grad_clip: 1.0
+  scheduler: cosine # cosine | onecycle
+  warmup_epochs: 9
+  early_stopping_patience: 10
+  seed: 42
+
+augmentation:
+  random_crop: true
+  horizontal_flip: true
+  randaugment: true
+  randaugment_n: 2
+  randaugment_m: 9
+  mixup_alpha: 0.2
+  cutmix_alpha: 1.0
+  label_smoothing: 0.1
+  random_erasing: true
+  random_erasing_prob: 0.3
+
+checkpoint:
+  dir: ./outputs/checkpoints
+
+outputs:
+  figures: ./outputs/figures

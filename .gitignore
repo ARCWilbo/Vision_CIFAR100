@@ -1,0 +1,14 @@
+# Dataset
+data/
+
+# Model checkpoints
+*.pth
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+
+# macOS
+.DS_Store
